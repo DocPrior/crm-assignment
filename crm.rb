@@ -89,7 +89,7 @@ class CRM
     print 'Enter value to search for: '
     search = gets.chomp
 
-    Contact.search_by_attribute(att, search)
+    p Contact.find_by(att, search)
   end
 end
 
