@@ -108,18 +108,18 @@ contact1 = Contact.create("Betty", "Makes", "bettymakes@gmail.com", "Loves Pokem
 
 contact2 = Contact.create("Joe", "Maker", "joemake@gmail.com", "loves cats")
 
-puts Contact.all
-
-puts Contact.find_by("first_name", "Joe")
-
-# contact2.delete
-
-puts Contact.all
-
-# puts Contact.find_by("last_name", "Makes")
-# puts Contact.find_by("email", "joemake@gmail.com")
-# puts Contact.find_by("note", "Loves Pokemone")
-
-puts contact1.full_name
+# # puts Contact.all
+# #
+# # puts Contact.find_by("first_name", "Joe")
+# #
+# # # contact2.delete
+# #
+# puts Contact.all
+#
+# # puts Contact.find_by("last_name", "Makes")
+# # puts Contact.find_by("email", "joemake@gmail.com")
+# # puts Contact.find_by("note", "Loves Pokemone")
+#
+# puts contact1.full_name
 
 #rest tested in irb

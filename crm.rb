@@ -1,7 +1,9 @@
+require_relative 'contact'
+
 class CRM
 
-  def initialize
-
+  def initialize(name)
+    @name = name
   end
 
   def main_menu
@@ -9,6 +11,7 @@ class CRM
       print_main_menu
       user_selected = gets.to_i
       call_option(user_selected)
+    end
   end
 
   def print_main_menu
@@ -29,6 +32,7 @@ class CRM
     when 4 then display_all_contacts
     when 5 then search_by_attribute
     when 6 then exit
+    end
   end
 
   def add_new_contact
@@ -47,18 +51,19 @@ class CRM
     Contact.create(first_name, last_name, email, note)
   end
 
-  def modify_existing_contact(id)
-    print 'Enter contact id: '
-    id = gets.to_i
-    contact = Contact.find(id)
+  def modify_existing_contact
+    print 'Enter contact (first_name) '
+    value = gets.chomp
+
+    contact_change = Contact.find_by("first_name", value)
 
     print 'Enter attribute to change: '
     att = gets.chomp
 
     print 'Enter new info: '
-    value = gets.chomp
+    new_value = gets.chomp
 
-    contact.update(att, value)
+    contact_change.update(att, new_value)
 
   end
 
@@ -70,7 +75,9 @@ class CRM
   end
 
   def display_all_contacts
-    puts Contact.all
+    Contact.all.each do |contact|
+     p "#{contact.first_name} #{contact.last_name} #{contact.email} #{contact.note}"
+   end
   end
 
   def search_by_attribute
@@ -82,6 +89,7 @@ class CRM
 
     Contact.search_by_attribute(att, search)
   end
-
-
 end
+
+app01 = CRM.new(app01)
+app01.main_menu
