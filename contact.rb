@@ -121,3 +121,5 @@ puts Contact.all
 # puts Contact.find_by("note", "Loves Pokemone")
 
 puts contact1.full_name
+
+#rest tested in irb
