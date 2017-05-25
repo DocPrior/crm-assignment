@@ -63,25 +63,25 @@ class Contact
   # eg. searching for 'first_name', 'Betty' should return the first contact named Betty
   def self.find_by(att, search)
     if att == "first_name"
-      @@contacts.each do |search|
+      @@contacts.each do |contact|
         if search == contact.first_name
           return contact
         end
       end
     elsif att == "last_name"
-      @@contacts.each do |search|
+      @@contacts.each do |contact|
         if search == contact.last_name
           return contact
         end
       end
     elsif att == "email"
-      @@contacts.each do |search|
+      @@contacts.each do |contact|
         if search == contact.email
           return contact
         end
       end
     else att == "note"
-      @@contacts.each do |search|
+      @@contacts.each do |contact|
         if search == contact.note
           return contact
         end
@@ -115,3 +115,7 @@ contact2 = Contact.create("Joe", "Maker", "joemake@gmail.com", "loves cats")
 puts Contact.all
 
 puts Contact.find_by("first_name", "Joe")
+
+contact2.delete
+
+puts Contact.all
