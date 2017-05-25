@@ -30,7 +30,7 @@ class Contact
   # This method should accept an id as an argument
   # and return the contact who has that id
   def self.find(id)
-    @@contacts.each do |id|
+    @@contacts.each do |contact|
       if id == contact.id
         return contact
       end
@@ -41,19 +41,15 @@ class Contact
   # 1. which of the contact's attributes you want to update
   # 2. the new value for that attribute
   # and then make the appropriate change to the contact
-  def update(att)
+  def update(att, new_value)
     if att == "first_name"
-      gets new_first_name.chomp
-      @first_name = new_first_name
+      self.first_name = new_value
     elsif att == "last_name"
-      gets new_last_name.chomp
-      @last_name = new_last_name
+      self.last_name = new_value
     elsif att == "email"
-      gets new_email.chomp
-      @email = new_email
-    else att == "note"
-      gets new_note.chomp
-      @note = new_note
+      self.email = new_value
+    elsif att == "note"
+      self.note = new_value
     end
   end
 
@@ -80,7 +76,7 @@ class Contact
           return contact
         end
       end
-    else att == "note"
+    elsif att == "note"
       @@contacts.each do |contact|
         if search == contact.note
           return contact
@@ -116,6 +112,12 @@ puts Contact.all
 
 puts Contact.find_by("first_name", "Joe")
 
-contact2.delete
+# contact2.delete
 
 puts Contact.all
+
+# puts Contact.find_by("last_name", "Makes")
+# puts Contact.find_by("email", "joemake@gmail.com")
+# puts Contact.find_by("note", "Loves Pokemone")
+
+puts contact1.full_name
