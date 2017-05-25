@@ -69,14 +69,16 @@ class CRM
 
   def delete_contact
     print 'Enter id of contact to delete: '
-    id = gets.chomp
-    contact = Cantact.find(id)
+    id = gets.to_i
+    contact = Contact.find(id)
     contact.delete
+
+    display_all_contacts
   end
 
   def display_all_contacts
     Contact.all.each do |contact|
-     p "#{contact.first_name} #{contact.last_name} #{contact.email} #{contact.note}"
+     p "#{contact.first_name} #{contact.last_name} #{contact.email} #{contact.note} #{contact.id}"
    end
   end
 
