@@ -91,7 +91,7 @@ class Contact
   end
 
   def full_name
-    puts "#{@first_name} #{@last_name}"
+    return "#{@first_name} #{@last_name}"
   end
 
   # This method should delete the contact
