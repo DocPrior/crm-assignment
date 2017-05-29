@@ -64,8 +64,6 @@ class CRM
 
     contact_to_change = Contact.find(id)
 
-    # contact_to_change = Contact.find_by("first_name", value)
-    #
     print 'Enter attribute to change: '
     att = gets.chomp
 
@@ -99,7 +97,8 @@ class CRM
     print 'Enter value to search for: '
     search = gets.chomp
 
-    p Contact.find_by(att, search)
+    result = Contact.find_by({att => search})
+    puts result.inspect
   end
 end
 
